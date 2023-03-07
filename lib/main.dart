@@ -1,11 +1,17 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mvvm_boilerplate/routes/router.dart';
+import 'package:flutter_mvvm_boilerplate/utils/localization_helper.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'constants/constants.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await EasyLocalization.ensureInitialized();
+  runApp(LocalizationHelper.setLocalization(
+    const MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -18,6 +24,9 @@ class MyApp extends StatelessWidget {
       builder: (_, __) {
         return MaterialApp.router(
           debugShowCheckedModeBanner: false,
+          localizationsDelegates: context.localizationDelegates,
+          supportedLocales: context.supportedLocales,
+          locale: context.locale,
           routerConfig: router,
           title: 'Todo',
         );
