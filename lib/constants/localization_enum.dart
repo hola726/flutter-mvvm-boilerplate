@@ -9,12 +9,12 @@ enum Localization {
   ERROR("에러"),
 
   // Dio Error
-  CONNECT_TIMEOUT("연결 시간초과"),
+  CONNECTION_TIMEOUT("연결 시간초과"),
   SEND_TIMEOUT("전송 시간초과"),
   RECEIVE_TIMEOUT("수신 시간초과"),
-  REMOTE_RESPONSE("응답 에러"),
+  BAD_RESPONSE("응답 에러"),
   REMOTE_CANCEL("요청 취소"),
-  REMOTE_OTHER("기타 오류");
+  UNKNOWN("기타 오류");
 
   const Localization(this.krDescription);
   final String krDescription;
