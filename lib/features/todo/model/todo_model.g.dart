@@ -51,3 +51,27 @@ class TodoModelAdapter extends TypeAdapter<_$_TodoModel> {
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+_$_TodoModel _$$_TodoModelFromJson(Map<String, dynamic> json) => _$_TodoModel(
+      name: json['name'] as String,
+      description: json['description'] as String?,
+      time:
+          json['time'] == null ? null : DateTime.parse(json['time'] as String),
+      isComplete: json['isComplete'] as bool?,
+      checkList: (json['checkList'] as Map<String, dynamic>?)?.map(
+        (k, e) => MapEntry(k, e as bool),
+      ),
+    );
+
+Map<String, dynamic> _$$_TodoModelToJson(_$_TodoModel instance) =>
+    <String, dynamic>{
+      'name': instance.name,
+      'description': instance.description,
+      'time': instance.time?.toIso8601String(),
+      'isComplete': instance.isComplete,
+      'checkList': instance.checkList,
+    };
