@@ -2,7 +2,7 @@
 
 ## Overview
 
-[Flutter MVVM Template](https://github.com/hola726/flutter_mvvm_template) 을 위한 boilerplate 입니다.
+[Flutter MVVM Template](https://github.com/hola726/flutter-mvvm-template) 을 위한 boilerplate 입니다.
 
 ## 🛠 Prerequisite
 
