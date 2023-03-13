@@ -23,6 +23,9 @@ dependencies:
   json_serializable: ^6.6.1
   provider: ^6.0.5
   dio: ^5.0.1
+  connectivity_plus: ^3.0.3
+  internet_connection_checker: ^1.0.0+1
+  flutter_svg: ^2.0.3
 
 
 dev_dependencies:
