@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
@@ -53,11 +54,24 @@ class RemoteService {
 
   final Dio _dio;
 
+  Future<Map<String, String>> _getHeader() async {
+    String token = "";
+    final Map<String, String> header = {
+      HttpHeaders.contentTypeHeader: 'application/json',
+      HttpHeaders.authorizationHeader: token
+    };
+
+    return header;
+  }
+
   Future<Map<String, dynamic>> get(String api,
       [Map<String, dynamic>? params]) async {
     try {
       final Response response = await _dio.get(
         api,
+        options: Options(
+          headers: await _getHeader(),
+        ),
         queryParameters: params,
       );
       final Map<String, dynamic> data = _responseHandler(response);
@@ -78,6 +92,9 @@ class RemoteService {
     try {
       final Response response = await _dio.post(
         api,
+        options: Options(
+          headers: await _getHeader(),
+        ),
         data: body != null ? jsonEncode(body) : null,
       );
       final Map<String, dynamic> data = _responseHandler(response);
@@ -95,6 +112,9 @@ class RemoteService {
     try {
       final Response response = await _dio.put(
         api,
+        options: Options(
+          headers: await _getHeader(),
+        ),
         data: jsonEncode(body),
       );
       final Map<String, dynamic> data = _responseHandler(response);
@@ -112,6 +132,9 @@ class RemoteService {
     try {
       final Response response = await _dio.delete(
         api,
+        options: Options(
+          headers: await _getHeader(),
+        ),
       );
       final Map<String, dynamic> data = _responseHandler(response);
       return data;
@@ -128,6 +151,9 @@ class RemoteService {
     try {
       final Response response = await _dio.patch(
         api,
+        options: Options(
+          headers: await _getHeader(),
+        ),
         data: jsonEncode(body),
       );
       dynamic data = _responseHandler(response);

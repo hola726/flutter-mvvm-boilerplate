@@ -1,16 +1,23 @@
-# flutter_mvvm_boilerplate
+# Flutter_MVVM_Boilerplate
 
-flutter mvvm boilerplate
+## Overview
 
-## Getting Started
+[Flutter MVVM Template](https://github.com/hola726/flutter_mvvm_template) 을 위한 boilerplate 입니다.
 
-This project is a starting point for a Flutter application.
+## 🛠 Prerequisite
 
-A few resources to get you started if this is your first Flutter project:
+|      NAME      | VERSION |
+|:--------------:|:-------:|
+|  Flutter SDK   | 3.7.6  |
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 📟 Project Stack
+
+- Flutter
+- Fvm
+- Provider
+- Hive
+- Freezed
+- Go_router
+- Dio
+- Easy_localization
