@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mvvm_boilerplate/utils/page_helper.dart';
 import 'package:provider/provider.dart';
 
 import '../../widgets/todo_model_item.dart';
@@ -9,12 +10,11 @@ class DisplayTodoPage extends StatelessWidget {
   const DisplayTodoPage({Key? key}) : super(key: key);
 
   Widget _buildMain(DisplayTodoPageModel model) {
-    if (model.getTodoList == null || model.getTodoList!.isEmpty) {
-      return const Center(
-        child: Text(
-          "데이터가 없습니다.",
-          style: TextStyle(fontSize: 15),
-        ),
+    if (model.isDisablePage()) {
+      return PageHelper(
+        isLoading: false,
+        isEmpty: model.isEmpty(),
+        isNetworkDisconnect: model.isNetworkDisConnect(),
       );
     }
     return SingleChildScrollView(

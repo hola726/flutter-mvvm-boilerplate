@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mvvm_boilerplate/providers/network_provider.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
@@ -43,7 +44,8 @@ Widget addTodo(_, __) {
 
 Widget displayTodo(_, __) {
   return ChangeNotifierProvider(
-    create: (_) => DisplayTodoPageModel(
+    create: (context) => DisplayTodoPageModel(
+      networkProvider: context.read<NetworkProvider>(),
       localService: TodoLocalService(localService: LocalService()),
     ),
     child: const DisplayTodoPage(),
