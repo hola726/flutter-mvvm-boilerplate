@@ -35,7 +35,7 @@ Widget addTodo(_, __) {
   return ChangeNotifierProvider(
     create: (context) => AddTodoPageModel(
       context: context,
-      addTodoLocalService: TodoLocalService(localService: LocalService()),
+      localService: TodoLocalService(localService: LocalService()),
     ),
     child: const AddTodoPage(),
   );
@@ -44,7 +44,7 @@ Widget addTodo(_, __) {
 Widget displayTodo(_, __) {
   return ChangeNotifierProvider(
     create: (_) => DisplayTodoPageModel(
-      addTodoLocalService: TodoLocalService(localService: LocalService()),
+      localService: TodoLocalService(localService: LocalService()),
     ),
     child: const DisplayTodoPage(),
   );
