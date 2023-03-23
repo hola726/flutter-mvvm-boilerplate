@@ -8,9 +8,8 @@ class DisplayTodoPage extends StatelessWidget {
   static const id = "/displayTodoPage";
   const DisplayTodoPage({Key? key}) : super(key: key);
 
-  Widget _buildMain(DisplayTodoPageModel displayTodoPageModel) {
-    if (displayTodoPageModel.getTodoList == null ||
-        displayTodoPageModel.getTodoList!.isEmpty) {
+  Widget _buildMain(DisplayTodoPageModel model) {
+    if (model.getTodoList == null || model.getTodoList!.isEmpty) {
       return const Center(
         child: Text(
           "데이터가 없습니다.",
@@ -26,7 +25,7 @@ class DisplayTodoPage extends StatelessWidget {
         child: Column(
           children: [
             Column(
-              children: displayTodoPageModel.getTodoList!.map(
+              children: model.getTodoList!.map(
                 (todoData) {
                   return Padding(
                     padding: const EdgeInsets.only(top: 20),
@@ -45,13 +44,12 @@ class DisplayTodoPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final DisplayTodoPageModel displayTodoPageModel =
-        context.watch<DisplayTodoPageModel>();
+    final DisplayTodoPageModel model = context.watch<DisplayTodoPageModel>();
     return Scaffold(
       appBar: AppBar(
         title: const Text("Todo List Page"),
       ),
-      body: _buildMain(displayTodoPageModel),
+      body: _buildMain(model),
     );
   }
 }

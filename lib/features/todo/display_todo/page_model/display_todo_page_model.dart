@@ -5,10 +5,10 @@ import '../../services/todo_local_service.dart';
 
 class DisplayTodoPageModel extends ChangeNotifier {
   DisplayTodoPageModel({
-    required TodoLocalService addTodoLocalService,
-  }) : _addTodoLocalService = addTodoLocalService;
+    required TodoLocalService localService,
+  }) : _localService = localService;
 
-  final TodoLocalService _addTodoLocalService;
+  final TodoLocalService _localService;
 
-  List<TodoModel>? get getTodoList => _addTodoLocalService.getTodoList();
+  List<TodoModel>? get getTodoList => _localService.getTodoList();
 }
